@@ -1,0 +1,313 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  p {
+    margin: 0;
+  }
+  h1 {
+    margin: 0;
+  }
+  &-main {
+    display: flex;
+    min-height: calc(100vh - 100px);
+    &-left {
+      width: 50%;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      padding: 2.25rem 7.6rem;
+      &-header {
+        &-logo {
+          text-align: center;
+          img {
+            height: 30px;
+          }
+          margin-bottom: 12%;
+        }
+        margin-bottom: 10%;
+        &-title {
+          font-weight: 700;
+          font-size: 20px;
+          color: #002857;
+          margin-bottom: 0.875rem !important;
+        }
+        &-subtitle {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 1rem;
+          color: #6f7174;
+        }
+      }
+      &-main {
+        display: flex;
+        flex-direction: column;
+        .login-form {
+          .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.875rem;
+            width: 100%;
+
+            &:first-child {
+              margin-bottom: 6%;
+            }
+            &:nth-child(2) {
+              margin-bottom: 8%;
+            }
+
+            .form-label {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+
+              font-style: normal;
+              font-weight: 500;
+              font-size: 1.125rem;
+              color: #002857;
+
+              .forget-password {
+                text-decoration: none;
+                color: #0050bc;
+                text-align: right;
+                font-size: 1rem;
+
+                font-weight: 500;
+              }
+            }
+
+            .form-input {
+              box-sizing: border-box;
+              padding: 17px 15px;
+              border: 1px solid #c8c8ce;
+              border-radius: 10px;
+              height: 50px;
+              font-size: 1rem;
+            }
+
+            input.form-input::placeholder {
+              font-style: normal;
+              font-weight: 600;
+              font-size: 1rem;
+              color: #c8c8ce;
+            }
+          }
+          .input-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 6%;
+
+            &-label {
+              font-style: normal;
+              font-weight: 500;
+              font-size: 1rem;
+              user-select: none;
+              cursor: pointer;
+
+              color: #002857;
+            }
+            input[type="checkbox"] {
+              width: 20px;
+              height: 20px;
+
+              border: 1px solid #6f7174;
+              border-radius: 2px;
+            }
+          }
+          .loginBtn {
+            width: 100%;
+            height: 50px;
+            border-radius: 10px;
+            background: #0050bc;
+            border: none;
+
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.125rem;
+            color: #fff;
+            cursor: pointer;
+            margin-bottom: 35px;
+          }
+          .loginBtn:hover {
+            opacity: 0.7;
+          }
+          .sign-up {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            &-caption {
+              font-style: normal;
+              font-weight: 500;
+              font-size: 1rem;
+              color: #002857;
+              margin: 0;
+            }
+            &-link {
+              font-style: normal;
+              font-weight: 500;
+              font-size: 1rem;
+              color: #0050bc;
+              margin: 0;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+    &-right {
+      flex: 1;
+      background-image: url("../../assets/img/login_image.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      &-overide {
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        opacity: 0.5;
+      }
+    }
+    &.tablet {
+      min-height: calc(100vh - 208px);
+
+      .login-main-left {
+        width: 100%;
+        padding: 29px 66px;
+        min-height: 1100px;
+        &-header {
+          &-logo {
+            margin-bottom: 149px;
+          }
+          &-title {
+            margin-bottom: 1rem;
+          }
+          &-subtitle {
+            font-size: 15px;
+          }
+          margin-bottom: 10%;
+        }
+        &-main {
+          .login-form {
+            .input-group {
+              gap: 20px;
+              &:first-child {
+                margin-bottom: 75px;
+              }
+              &:nth-child(2) {
+                margin-bottom: 40px;
+              }
+
+              .form-label {
+                font-size: 16px;
+              }
+              .form-input {
+                height: 60px;
+                border-radius: 5px;
+              }
+              .input-checkbox {
+                gap: 24px;
+                margin-bottom: 75px;
+              }
+              .loginBtn {
+                height: 60px;
+                font-size: 16px;
+                margin-bottom: 42px;
+              }
+            }
+          }
+        }
+      }
+      .login-main-right {
+        display: none;
+      }
+    }
+    &.mobile {
+      // Updated SCSS code
+      min-height: calc(100vh - 62px);
+
+      .login-main-left {
+        width: 100%;
+        padding: 43px 26px;
+        &-header {
+          &-logo {
+            margin-bottom: 13px;
+          }
+          margin-bottom: 64px;
+          &-title {
+            font-size: 16px;
+            margin-bottom: 11px;
+          }
+          &-subtitle {
+            font-size: 12px;
+          }
+          margin-bottom: 64px;
+        }
+        &-main {
+          .login-form {
+            .input-group {
+              gap: 14px;
+
+              &:first-child {
+                margin-bottom: 36px;
+              }
+              &:nth-child(2) {
+                margin-bottom: 28px;
+              }
+
+              .form-label {
+                font-size: 12px;
+                .forget-password {
+                  font-size: 12px;
+                }
+              }
+              .form-input {
+                height: 40px;
+                border-radius: 5px;
+                padding: 14px 12px;
+                font-size: 12px;
+              }
+              input.form-input::placeholder {
+                font-size: 10px;
+              }
+            }
+            .input-checkbox {
+              gap: 10px;
+
+              &-label {
+                font-size: 12px;
+              }
+              input[type="checkbox"] {
+                width: 15px;
+                height: 15px;
+
+                border: 1px solid #6f7174;
+                border-radius: 2px;
+              }
+              margin-bottom: 36px;
+            }
+            .loginBtn {
+              height: 40px;
+              font-size: 12px;
+              border-radius: 5px;
+              margin-bottom: 35px;
+            }
+            .sign-up {
+              &-caption {
+                font-size: 12px;
+              }
+              &-link {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+      .login-main-right {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.persona {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-transform: capitalize;
+  margin: 0;
+  &.luxury {
+    background: #fea42e33;
+    color: #fea42e;
+  }
+  &.exclusive {
+    background: #ff5f5d33;
+    color: #ff5f5d;
+  }
+  &.discount-driven {
+    background: #7d00b733;
+    color: #7d00b7;
+  }
+  &.needs-based {
+    background: #02afef33;
+    color: #02afef;
+  }
+  &.research-oriented {
+    background: #7dc69933;
+    color: #7dc699;
+  }
+  &.trend-setter {
+    background: #d7cf0f33;
+    color: #d7cf0f;
+  }
+  &.brand-conscious {
+    background: #e300b733;
+    color: #e300b7;
+  }
+}

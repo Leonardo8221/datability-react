@@ -1,0 +1,211 @@
+.connections {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px 10px 0 0;
+  box-sizing: border-box;
+  padding: 28px 30px;
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-title {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 22px;
+      margin: 0;
+      /* identical to box height */
+      text-transform: capitalize;
+      color: #002857;
+    }
+    &-addBtn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-sizing: border-box;
+      width: 194px;
+      height: 40px;
+      border: 0.5px solid #6f7174;
+      border-radius: 5px;
+      background: none;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      color: #6f7174;
+      cursor: pointer;
+      &:hover {
+        background-color: #ddd;
+      }
+    }
+    margin-bottom: 14px;
+  }
+  &-subtitle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    margin: 0;
+    color: #6f7174;
+    border-bottom: 1px solid #6f7174;
+    padding-bottom: 40px;
+  }
+  &-main {
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+    padding: 48px 0;
+    .connectionBox {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &-title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        color: #4a4c4d;
+        text-transform: capitalize;
+      }
+      &-controls {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+
+        .connectBtn {
+          background: none;
+          width: 224px;
+          height: 36px;
+          border: none;
+
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          transition: opacity 0.3s ease-in-out;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        .connectBtn:hover {
+          opacity: 0.7;
+        }
+        .connected-label {
+          display: flex;
+          gap: 12px;
+          align-items: center;
+
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          margin: 0;
+          &-icon {
+            font-size: 24px;
+          }
+        }
+
+        .text-success {
+          color: #16b21d;
+        }
+        .text-error {
+          color: #6f7174;
+        }
+        .text-danger {
+          color: #de2b2b;
+        }
+
+        .quickbooksBtn {
+          color: #fff;
+          background-color: #2ca01c;
+        }
+
+        .nuveiBtn {
+          color: #fff;
+          border: 1px solid #579bd3;
+          background: #000;
+        }
+
+        .tggBtn {
+          color: #579bd3;
+          border: 1px solid #579bd3;
+          background: none;
+        }
+      }
+    }
+  }
+
+  &.tablet {
+    border-radius: 10px 0 0 0;
+    padding: 30px 32px;
+    .connections-header {
+      &-title {
+        font-size: 20px;
+      }
+      &-addBtn {
+        width: 170px;
+        height: 30px;
+        font-size: 14px;
+      }
+      margin-bottom: 32px;
+    }
+    .connections-subtitle {
+      font-size: 14px;
+      padding-bottom: 34px;
+    }
+    .connections-main {
+      gap: 60px;
+      padding: 33px 0;
+      .connectionBox {
+        gap: 28px;
+        &-title {
+          font-size: 16px;
+          margin: 0;
+        }
+
+
+      }
+    }
+  }
+  &.mobile {
+    border-radius: 0;
+    padding: 38px 15px;
+    .connections-header {
+      &-title {
+        font-size: 18px;
+      }
+      &-addBtn {
+        width: 149px;
+        height: 26px;
+        font-size: 12px;
+      }
+      margin-bottom: 23px;
+    }
+    .connections-subtitle {
+      font-size: 14px;
+      padding-bottom: 22px;
+    }
+    .connections-main {
+      gap: 53px;
+      padding: 27px 0;
+      .connectionBox {
+        gap: 19px;
+        &-title {
+          font-size: 14px;
+          margin: 0;
+        }
+        &-controls {
+          .connectBtn {
+            width: 164px;
+            height: 32px;
+            font-size: 12px;
+            border-radius: 5px;
+          }
+          .connected-label {
+            font-size: 12px;
+            &-icon {
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

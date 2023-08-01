@@ -1,0 +1,28 @@
+.footer {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  background: #002857;
+  text-align: center;
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: center;
+
+  &-copyright {
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+  }
+  &.mobile {
+    height: 62px;
+    .footer-copyright {
+      font-size: 12px;
+    }
+  }
+  &.tablet {
+    height: 208px;
+    .footer-copyright {
+      font-size: 14px;
+    }
+  }
+}

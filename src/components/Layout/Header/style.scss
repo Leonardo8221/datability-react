@@ -1,0 +1,221 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 17px 36px;
+  height: 26px;
+  justify-content: space-between;
+  background-color: #002857;
+
+  .header-toggle {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 22px;
+    font-stretch: 100% !important;
+    cursor: pointer;
+    width: 30px;
+  }
+
+  .header-contorls {
+    display: flex;
+    align-items: center;
+
+    min-width: 45.39249146757679%;
+    justify-content: space-between;
+
+    &-serachForm {
+      position: relative;
+      width: 48.6013986013986%;
+
+      input[type="text"] {
+        display: flex;
+        align-items: center;
+        height: 12px;
+        width: 100%;
+        border-radius: 10px;
+        border: none;
+        padding: 7px 10px 7px 41px;
+      }
+      input[type="text"]:focus {
+        border: none;
+        outline: none;
+      }
+      input[type="text"]::placeholder {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        color: #6f7174;
+      }
+
+      .search-icon {
+        font-size: 18px;
+        position: absolute;
+        top: 4px;
+        left: 12px;
+        color: #6f7174;
+      }
+    }
+    &-list {
+      list-style: none;
+      display: flex;
+      width: 23.1203007518797%;
+      justify-content: space-between;
+      align-items: center;
+        margin: 0;
+        padding: 0;
+
+      &-loginUserName {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        width: 22px;
+        height: 22px;
+        margin: 0;
+        padding: 0;
+
+        background-color: #fff;
+        color: #002857;
+        text-transform: uppercase;
+        margin: 0;
+        cursor: pointer;
+        font-weight: 600;
+
+        font-size: 10px;
+      }
+      &-notification {
+        &-icon {
+          color: #fff;
+          font-size: 22px;
+          cursor: pointer;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      &-logout {
+        margin: 0;
+        padding: 0;
+        &-icon {
+          cursor: pointer;
+          color: white;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  &.tablet {
+    padding: 17px 32px 17px 39px;
+    height: 30px;
+    gap: 209px;
+    .header-toggle {
+      font-size: 16px;
+    }
+
+    .header-contorls {
+      width: 61.78343949044586%;
+
+      &-serachForm {
+        width: 45.15463917525773%;
+        input[type="text"] {
+          padding: 9px 10px 9px 54px;
+          border-radius: 7px;
+        }
+
+        .search-icon {
+          top: 6px;
+          left: 24px;
+        }
+      }
+      &-list {
+        width: 21.44329896907216%;
+        &-loginUserName {
+          width: 20px;
+          height: 20px;
+          font-size: 8px;
+        }
+        &-notification {
+          font-size: 20px;
+        }
+        &-logout {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  &.mobile {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    height: 30px;
+    background-color: #002857;
+    justify-content: space-between;
+
+    .header-toggle {
+      color: #fff;
+      font-size: 20px;
+    }
+    .header-logo {
+      img {
+        margin-top: 5px;
+        // height: 30px;
+      }
+    }
+    .header-user {
+      &-info {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        color: #002857;
+        font-size: 12px;
+        font-weight: 700;
+        background-color: #fff;
+        border-radius: 50%;
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      &-dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-sizing: border-box;
+        padding: 12px 4px;
+        position: absolute;
+        background-color: #fff;
+        border-radius: 5px;
+        color: #6f7174;
+        top: 40px;
+        right: 15px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        &-item {
+          display: flex;
+          align-items: center;
+          box-sizing: border-box;
+          padding: 6px 20px;
+          gap: 10px;
+          margin: 0;
+          text-decoration: none;
+          color: #6f7174;
+          cursor: pointer;
+          font-weight: 400;
+          font-size: 14px;
+          border-radius: 5px;
+          font-family: "Lato";
+
+          &:hover {
+            background-color: #ddd;
+          }
+
+          &-logout-icon {
+            transform: rotate(180deg);
+            font-weight: 700;
+          }
+        }
+      }
+    }
+  }
+}
