@@ -1,10 +1,5 @@
-import * as AWS from "aws-sdk/global";
-import {
-  CognitoUserPool,
-  CognitoUserAttribute,
-  CognitoUser,
-  AuthenticationDetails,
-} from "amazon-cognito-identity-js";
+import { CognitoUser, AuthenticationDetails } from "amazon-cognito-identity-js";
+import { userPool } from "../../utils/aws-config";
 import jwtDecode from "jwt-decode";
 import {
   LOGIN_REQUEST,
@@ -14,27 +9,9 @@ import {
   LOGOUT_REQUEST_SUCCESS,
 } from "../constant/auth";
 
-AWS.config.region = process.env.REACT_APP_AWS_REGION;
-AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-  IdentityPoolId: process.env.REACT_APP_AWS_IDENTITY_POOL_ID, // your identity pool id here
-  // Logins: {
-  //   // Change the key below according to the specific region your user pool is in.
-  //   "cognito-idp.us-east-1.amazonaws.com/us-east-1_n9kuj2vYy": result
-  //     .getIdToken()
-  //     .getJwtToken(),
-  // },
-});
-
-var poolData = {
-  UserPoolId: process.env.REACT_APP_AWS_USER_POOL_ID,
-  ClientId: process.env.REACT_APP_AWS_CLIENT_ID,
-};
-var userPool = new CognitoUserPool(poolData);
-
-export const loadUser = (cognitoUser) => async (dispatch) => {
+export const loadUser = () => async (dispatch) => {
   try {
-
-    cognitoUser = userPool.getCurrentUser();
+    const cognitoUser = userPool.getCurrentUser();
     cognitoUser.getSession(function (err, session) {
       // dispatch(getCurrentUserConfirmation(false))
       if (err) {
@@ -42,8 +19,8 @@ export const loadUser = (cognitoUser) => async (dispatch) => {
       } else {
         const user = {
           username: jwtDecode(session.accessToken.jwtToken).username,
-          email: jwtDecode(session.idToken.jwtToken).email
-        }
+          email: jwtDecode(session.idToken.jwtToken).email,
+        };
         dispatch({
           type: LOAD_USER_REQUEST_SUCCESS,
           payload: user,
@@ -72,8 +49,11 @@ export const login = (username, password) => {
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: (result) => {
         localStorage.setItem("token", result.getAccessToken().getJwtToken());
-        dispatch({ type: LOGIN_REQUEST_SUCCESS, payload: result.getAccessToken().getJwtToken()});
-        dispatch(loadUser(cognitoUser));
+        dispatch({
+          type: LOGIN_REQUEST_SUCCESS,
+          payload: result.getAccessToken().getJwtToken(),
+        });
+        dispatch(loadUser());
       },
       newPasswordRequired: function (userAttributes, requiredAttributes) {
         console.log("new password required");
@@ -88,14 +68,14 @@ export const login = (username, password) => {
 
 export const logout = () => async (dispatch) => {
   try {
-    console.log('logged out')
+    console.log("logged out");
     var cognitoUser = userPool.getCurrentUser();
-    console.log(cognitoUser)
+    console.log(cognitoUser);
     cognitoUser.signOut();
 
     dispatch({ type: LOGOUT_REQUEST_SUCCESS });
     localStorage.removeItem("token");
   } catch (error) {
-    console.log("Logout Error", error)
+    console.log("Logout Error", error);
   }
 };
