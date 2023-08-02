@@ -48,7 +48,7 @@ function App() {
         </Route>
         <Route
           path="/check-in"
-          element={ <CheckIn />}
+          element={<PrivateRoute component={CheckIn} />}
         />
       </Routes>
     </Router>
