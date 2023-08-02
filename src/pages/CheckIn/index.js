@@ -9,19 +9,43 @@ import CheckInLogo from "../../assets/img/check-in-logo.svg";
 
 import "./style.scss";
 import { Col, Form, Input, Row, Spin } from "antd";
+import { createCheckIn } from "../../redux/actions/check-in";
 
 const CheckIn = () => {
   const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
   const isMobile = useMediaQuery({ maxWidth: 769 });
-
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
+    email: "",
+    acceptedTerms: false,
+    allowedShareData: false,
+  });
+
+  const {
+    firstName,
+    lastName,
+    phoneNumber,
+    email,
+    acceptedTerms,
+    allowedShareData,
+  } = formData;
+
+  const onChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const onCheckBoxesChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.checked });
 
   useEffect(() => {}, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(createCheckIn(formData));
   };
 
   return (
@@ -43,37 +67,39 @@ const CheckIn = () => {
             </p>
           </div>
           <div className="checkIn-main-left-main">
-            <Form className="checkIn-form" onSubmit={handleSubmit}>
+            <form className="checkIn-form" onSubmit={handleSubmit}>
               <Row gutter={[24, 0]}>
                 <Col xl={12} md={12} sm={24} xs={24}>
                   <div className="input-group">
-                    <label className="form-label" htmlFor="firstname">
+                    <label className="form-label" htmlFor="firstName">
                       First name
                     </label>
                     <input
                       className="form-input"
                       type="text"
-                      id="firstname"
-                      name="firstname"
-                      placeholder="firstname"
+                      id="firstName"
+                      name="firstName"
+                      placeholder="firstName"
+                      value={firstName}
+                      onChange={onChange}
                       required
-                      // onChange={(e) => setUsername(e.target.value)}
                     />
                   </div>
                 </Col>
                 <Col xl={12} md={12} sm={24} xs={24}>
                   <div className="input-group">
-                    <label className="form-label" htmlFor="lastname">
+                    <label className="form-label" htmlFor="lastName">
                       Last name
                     </label>
                     <input
                       className="form-input"
                       type="text"
-                      id="lastname"
-                      name="lastname"
-                      placeholder="lastname"
+                      id="lastName"
+                      name="lastName"
+                      placeholder="lastName"
+                      value={lastName}
+                      onChange={onChange}
                       required
-                      // onChange={(e) => setUsername(e.target.value)}
                     />
                   </div>
                 </Col>
@@ -81,17 +107,18 @@ const CheckIn = () => {
               <Row>
                 <Col span={24}>
                   <div className="input-group">
-                    <label className="form-label" htmlFor="phone">
+                    <label className="form-label" htmlFor="phoneNumber">
                       Phone number
                     </label>
                     <input
                       className="form-input"
                       type="text"
-                      id="phone"
-                      name="phone"
-                      placeholder="phone"
+                      id="phoneNumber"
+                      name="phoneNumber"
+                      placeholder="phoneNumber"
+                      value={phoneNumber}
+                      onChange={onChange}
                       required
-                      // onChange={(e) => setUsername(e.target.value)}
                     />
                   </div>
                 </Col>
@@ -108,6 +135,8 @@ const CheckIn = () => {
                       id="email"
                       name="email"
                       placeholder="email"
+                      value={email}
+                      onChange={onChange}
                       required
                     />
                   </div>
@@ -119,16 +148,18 @@ const CheckIn = () => {
                   <div className="input-checkbox">
                     <input
                       type="checkbox"
-                      id="acceptterm"
-                      name="acceptterm"
+                      id="acceptedTerms"
+                      name="acceptedTerms"
+                      checked={acceptedTerms}
+                      onChange={onCheckBoxesChange}
                       required
                     />
                     <label
                       className="input-checkbox-label"
-                      htmlFor="acceptterm"
+                      htmlFor="acceptedTerms"
                     >
                       Accept{" "}
-                      <a href="#" id="acceptterm">
+                      <a href="#" id="acceptedTerms">
                         terms and conditions
                       </a>
                     </label>
@@ -136,8 +167,18 @@ const CheckIn = () => {
                 </Col>
                 <Col span={24}>
                   <div className="input-checkbox">
-                    <input type="checkbox" id="agree" name="agree" required />
-                    <label className="input-checkbox-label" htmlFor="agree">
+                    <input
+                      type="checkbox"
+                      id="allowedShareData"
+                      name="allowedShareData"
+                      checked={allowedShareData}
+                      onChange={onCheckBoxesChange}
+                      required
+                    />
+                    <label
+                      className="input-checkbox-label"
+                      htmlFor="allowedShareData"
+                    >
                       Agree to share data with partners for improved{" "}
                       <a className="">
                         customer experience and personalized offers.
@@ -153,7 +194,7 @@ const CheckIn = () => {
                   </button>
                 </Col>
               </Row>
-            </Form>
+            </form>
           </div>
         </div>
         <div className="checkIn-main-right">
