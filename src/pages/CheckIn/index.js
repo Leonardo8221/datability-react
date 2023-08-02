@@ -44,7 +44,7 @@ const CheckIn = () => {
           </div>
           <div className="checkIn-main-left-main">
             <form className="checkIn-form" onSubmit={handleSubmit}>
-              <Row gutter={[24, 24]}>
+              <Row gutter={[24, 0]}>
                 <Col xl={12} md={12} sm={24} xs={24}>
                   <div className="input-group">
                     <label className="form-label" htmlFor="firstname">
