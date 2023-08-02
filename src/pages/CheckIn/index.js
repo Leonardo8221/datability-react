@@ -8,7 +8,7 @@ import Footer from "../../components/Layout/Footer";
 import CheckInLogo from "../../assets/img/check-in-logo.svg";
 
 import "./style.scss";
-import { Col, Row, Spin } from "antd";
+import { Col, Form, Input, Row, Spin } from "antd";
 
 const CheckIn = () => {
   const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
@@ -43,7 +43,7 @@ const CheckIn = () => {
             </p>
           </div>
           <div className="checkIn-main-left-main">
-            <form className="checkIn-form" onSubmit={handleSubmit}>
+            <Form className="checkIn-form" onSubmit={handleSubmit}>
               <Row gutter={[24, 0]}>
                 <Col xl={12} md={12} sm={24} xs={24}>
                   <div className="input-group">
@@ -56,6 +56,7 @@ const CheckIn = () => {
                       id="firstname"
                       name="firstname"
                       placeholder="firstname"
+                      required
                       // onChange={(e) => setUsername(e.target.value)}
                     />
                   </div>
@@ -71,6 +72,7 @@ const CheckIn = () => {
                       id="lastname"
                       name="lastname"
                       placeholder="lastname"
+                      required
                       // onChange={(e) => setUsername(e.target.value)}
                     />
                   </div>
@@ -88,6 +90,7 @@ const CheckIn = () => {
                       id="phone"
                       name="phone"
                       placeholder="phone"
+                      required
                       // onChange={(e) => setUsername(e.target.value)}
                     />
                   </div>
@@ -101,11 +104,11 @@ const CheckIn = () => {
                     </label>
                     <input
                       className="form-input"
-                      type="text"
+                      type="email"
                       id="email"
                       name="email"
                       placeholder="email"
-                      // onChange={(e) => setUsername(e.target.value)}
+                      required
                     />
                   </div>
                 </Col>
@@ -114,24 +117,31 @@ const CheckIn = () => {
               <Row>
                 <Col span={24}>
                   <div className="input-checkbox">
-                    <input type="checkbox" id="acceptterm" name="acceptterm" />
+                    <input
+                      type="checkbox"
+                      id="acceptterm"
+                      name="acceptterm"
+                      required
+                    />
                     <label
                       className="input-checkbox-label"
                       htmlFor="acceptterm"
                     >
-                      Accept <a href="#" id="acceptterm">terms and conditions</a>
+                      Accept{" "}
+                      <a href="#" id="acceptterm">
+                        terms and conditions
+                      </a>
                     </label>
                   </div>
                 </Col>
                 <Col span={24}>
                   <div className="input-checkbox">
-                    <input type="checkbox" id="agree" name="agree" />
-                    <label
-                      className="input-checkbox-label"
-                      htmlFor="agree"
-                    >
-                      Agree to share data with partners for improved <a className="">customer
-                      experience and personalized offers.</a>
+                    <input type="checkbox" id="agree" name="agree" required />
+                    <label className="input-checkbox-label" htmlFor="agree">
+                      Agree to share data with partners for improved{" "}
+                      <a className="">
+                        customer experience and personalized offers.
+                      </a>
                     </label>
                   </div>
                 </Col>
@@ -143,7 +153,7 @@ const CheckIn = () => {
                   </button>
                 </Col>
               </Row>
-            </form>
+            </Form>
           </div>
         </div>
         <div className="checkIn-main-right">
