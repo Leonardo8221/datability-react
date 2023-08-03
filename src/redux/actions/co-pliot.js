@@ -10,6 +10,7 @@ import {
   GET_CUSTOMER_REQUEST_ERROR,
   GET_CUSTOMER_REQUEST_SUCCESS
 } from "../constant/co-pilot";
+import { setNotification } from "./notification";
 
 export const getSummaryData = () => async (dispatch) => {
   try {
@@ -20,6 +21,7 @@ export const getSummaryData = () => async (dispatch) => {
     dispatch({ type: GET_SUMMARYDATA_REQUEST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_SUMMARYDATA_REQUEST_ERROR, payload: error });
+    dispatch(setNotification("error", error.message))
   }
 };
 
@@ -32,6 +34,8 @@ export const getAllCutomerData = () => async (dispatch) => {
     dispatch({ type: GET_ALL_CUSTOMERS_REQUEST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_ALL_CUSTOMERS_REQUEST_ERROR, payload: error });
+    dispatch(setNotification("error", error.message))
+
   }
 };
 
@@ -44,6 +48,8 @@ export const getCustomerData = (id) => async (dispatch) => {
     dispatch({ type: GET_CUSTOMER_REQUEST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_CUSTOMER_REQUEST_ERROR, payload: error });
+    dispatch(setNotification("error", error.message))
+
   }
 };
 

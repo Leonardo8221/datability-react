@@ -4,6 +4,7 @@ import {
   GET_CONNECTIONS_REQUEST_FAIL,
   GET_CONNECTIONS_REQUEST_SUCCESS,
 } from "../constant/connections";
+import { setNotification } from "./notification";
 
 export const getConnectionData = () => async (dispatch) => {
   try {
@@ -14,5 +15,7 @@ export const getConnectionData = () => async (dispatch) => {
     dispatch({ type: GET_CONNECTIONS_REQUEST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_CONNECTIONS_REQUEST_FAIL, payload: error });
+    dispatch(setNotification("error", error.message))
+
   }
 };

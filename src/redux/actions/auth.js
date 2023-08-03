@@ -8,6 +8,7 @@ import {
   LOAD_USER_REQUEST_SUCCESS,
   LOGOUT_REQUEST_SUCCESS,
 } from "../constant/auth";
+import { setNotification } from "./notification";
 
 export const loadUser = () => async (dispatch) => {
   try {
@@ -28,6 +29,7 @@ export const loadUser = () => async (dispatch) => {
       }
     });
   } catch (error) {
+    dispatch(setNotification("error", error));
     console.log(error);
   }
 };
@@ -57,9 +59,11 @@ export const login = (username, password) => {
       },
       newPasswordRequired: function (userAttributes, requiredAttributes) {
         console.log("new password required");
+        dispatch(setNotification("warning", "New password required"));
         delete userAttributes.email_verified;
       },
       onFailure: function (err) {
+        dispatch(setNotification("error", err.message));
         dispatch({ type: LOGIN_REQUEST_FAIL, payload: err });
       },
     });
@@ -77,5 +81,6 @@ export const logout = () => async (dispatch) => {
     localStorage.removeItem("token");
   } catch (error) {
     console.log("Logout Error", error);
+    dispatch(setNotification("error", "Logout Error"));
   }
 };

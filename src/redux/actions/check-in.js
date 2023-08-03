@@ -6,6 +6,7 @@ import {
 } from "../constant/check-in";
 import { userPool } from "../../utils/aws-config";
 import { setNotification } from "./notification";
+
 export const createCheckIn = (formdata) => async (dispatch) => {
   dispatch({
     type: CREATE_CHECKIN_REQUEST,
@@ -27,27 +28,11 @@ export const createCheckIn = (formdata) => async (dispatch) => {
 
     dispatch(setNotification("success", "You are now checked-in"));
 
-    // cognitoUser.getUserAttributes(function (err, result) {
-    //   if (err) {
-    //     alert(err.message || JSON.stringify(err));
-    //     return;
-    //   }
-    //   // Find the 'email_verified' attribute in the result array
-    //   const clientUUIDProp = result.find(
-    //     (attr) => attr.getName() === "custom:client_uuid"
-    //   );
-
-    //   if (clientUUIDProp) {
-    //     const clientUUIDValue = clientUUIDProp.getValue();
-    //     console.log("client_uuid has value:", clientUUIDValue);
-    //   } else {
-    //     console.log("client_uuid attribute not found.");
-    //   }
-    // });
   } catch (error) {
     dispatch({
       type: CREATE_CHECKIN_REQUEST_ERROR,
       payload: error.message,
     });
+    dispatch(setNotification("error", error.message));
   }
 };
