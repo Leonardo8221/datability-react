@@ -87,7 +87,7 @@ const CheckIn = () => {
                       type="text"
                       id="firstName"
                       name="firstName"
-                      placeholder="firstName"
+                      placeholder="John"
                       value={firstName}
                       onChange={onChange}
                       required
@@ -104,7 +104,7 @@ const CheckIn = () => {
                       type="text"
                       id="lastName"
                       name="lastName"
-                      placeholder="lastName"
+                      placeholder="Doe"
                       value={lastName}
                       onChange={onChange}
                       required
@@ -123,7 +123,7 @@ const CheckIn = () => {
                       type="text"
                       id="phoneNumber"
                       name="phoneNumber"
-                      placeholder="phoneNumber"
+                      placeholder="Enter 10 digits, no lines"
                       value={phoneNumber}
                       onChange={onChange}
                       required
