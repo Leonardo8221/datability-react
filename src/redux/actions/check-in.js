@@ -25,7 +25,7 @@ export const createCheckIn = (formdata) => async (dispatch) => {
       payload: response.data,
     });
 
-    dispatch(setNotification("success", response.data));
+    dispatch(setNotification("success", "You are now checked-in"));
 
     // cognitoUser.getUserAttributes(function (err, result) {
     //   if (err) {

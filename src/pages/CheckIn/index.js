@@ -46,6 +46,14 @@ const CheckIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createCheckIn(formData));
+    setFormData({
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
+      email: "",
+      acceptedTerms: false,
+      allowedShareData: false,
+    });
   };
 
   return (
@@ -173,7 +181,6 @@ const CheckIn = () => {
                       name="allowedShareData"
                       checked={allowedShareData}
                       onChange={onCheckBoxesChange}
-                      required
                     />
                     <label
                       className="input-checkbox-label"

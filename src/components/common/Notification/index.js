@@ -10,7 +10,7 @@ const Notification = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const OpenNotification = (type, message, id) => {
     api[type]({
-      message: type,
+      message: type.charAt(0).toUpperCase() + type.slice(1),
       description: message,
       onclose: dispatch(removeNotification(id))
     });
