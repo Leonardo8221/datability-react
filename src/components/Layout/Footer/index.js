@@ -1,5 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 
+import FooterLogoImg from "../../../assets/img/logo-footer.svg";
 import "./style.scss";
 
 const Footer = () => {
@@ -12,9 +13,16 @@ const Footer = () => {
         isTablet ? " tablet" : ""
       }`}
     >
-      <p className="footer-copyright">
-        @{year}, DataBillity, LLC. All rights reserved.
-      </p>
+      <div className="footer-left">
+        <img className="footer-logo" src={FooterLogoImg} alt="Footer Logo" />
+        <p>End User Licensing Agreement</p>
+        <p>Product Privacy Policy</p>
+      </div>
+      <div className="footer-right">
+        <p>
+          @{year}, DataBillity, INC. All rights reserved.
+        </p>
+      </div>
     </div>
   );
 };

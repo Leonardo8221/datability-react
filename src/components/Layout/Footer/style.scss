@@ -4,19 +4,37 @@
   height: 100px;
   background: #002857;
   text-align: center;
-  justify-content: center;
+  justify-content: space-between;
   box-sizing: border-box;
   align-items: center;
+  padding: 14px 20px;
 
-  &-copyright {
-    font-weight: 500;
-    font-size: 14px;
-    color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+  user-select: none;
+
+  &-left {
+    display: flex;
+    gap: 16px;
   }
+  &-right {
+    font-family: "Lato-light";
+  }
+
   &.mobile {
-    height: 62px;
-    .footer-copyright {
-      font-size: 12px;
+    flex-direction: column;
+    height: 180px!important;
+    .footer-left {
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 36px;
+      .footer-logo {
+        height: 32px;
+      }
+      p {
+        margin: 0;
+      }
     }
   }
   &.tablet {
