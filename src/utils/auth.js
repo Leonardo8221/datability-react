@@ -1,7 +1,7 @@
 export const AwsConfigAuth = {
-    region: process.env.REACT_APP_AWS_REGION,
-    userPoolId: process.env.REACT_APP_AWS_USER_POOL_ID,
-    userPoolWebClientId: process.env.REACT_APP_AWS_CLIENT_ID,
+    region: "us-east-1",
+    userPoolId: "us-east-1_n9kuj2vYy",
+    userPoolWebClientId: "1k5m7ubtbja69k2skp40um693i",
     cookieStorage: {
         domain: process.env.REACT_APP_AUTH_COOKIE_STORAGE_DOMAIN,
         path: "/",

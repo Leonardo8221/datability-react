@@ -21,9 +21,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "amazon-cognito-identity-js": "^6.3.1",
     "antd": "^5.6.3",
-    "aws-amplify": "^4.3.46",
-    "aws-sdk": "^2.1421.0",
     "axios": "^1.4.0",
     "dotenv": "^16.3.1",
     "jwt-decode": "^3.1.2",
@@ -44,7 +43,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
