@@ -17,6 +17,18 @@ const Connections = () => {
   const dispatch = useDispatch();
   const { connections, isLoading } = useSelector((state) => state.connections);
 
+  const btnClicked = (type) => {
+    switch (type) {
+      case "quickbooks":
+        const url = process.env.REACT_APP_QUICKBOOK_URL + '?client_id=' + process.env.REACT_APP_CLIENT_ID + '&scope=' + process.env.REACT_APP_SCOPES + '&redirect_uri=' + process.env.REACT_APP_REDIRECT_URI + '&response_type=' + process.env.REACT_APP_RESPONSE_TYPE + '&state=' + process.env.REACT_APP_STATE;
+        console.log(url);
+        window.location.href = url;
+        break;
+      default:
+        break;
+    }
+  };
+
   useEffect(() => {
     dispatch(getConnectionData());
   }, []);
@@ -47,7 +59,10 @@ const Connections = () => {
                 {connect.integration_name}
               </h1>
               <div className="connectionBox-controls">
-                <button className={`connectBtn ${connect.integration_name}Btn`}>
+                <button
+                  className={`connectBtn ${connect.integration_name}Btn`}
+                  onClick={() => btnClicked(connect.integration_name)}
+                >
                   {connect.integration_button}
                 </button>
                 {connect.connected ? (
