@@ -16,20 +16,16 @@ import "./style.scss";
 import { logout } from "../../../redux/actions/auth";
 const Header = (props) => {
   const [isNewNotification, setIsNewNotification] = useState(true);
-  const [isUserDropdownOpen, setIsUserDropdownOpen] =
-    useState(false);
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const isTablet = useMediaQuery({ minWidth: 769, maxWidth: 1024 });
   const isMobile = useMediaQuery({ maxWidth: 769 });
 
   useEffect(() => {
     function handleOutsideClick(event) {
-      if (
-        isUserDropdownOpen &&
-        !dropdownRef.current.contains(event.target)
-      )
+      if (isUserDropdownOpen && !dropdownRef.current.contains(event.target))
         setIsUserDropdownOpen(false);
     }
     document.addEventListener("mousedown", handleOutsideClick);
@@ -37,7 +33,7 @@ const Header = (props) => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [isUserDropdownOpen]);
-  
+
   return (
     <>
       {isMobile ? (
@@ -53,15 +49,12 @@ const Header = (props) => {
               <Badge dot={isNewNotification} offset={[-3, 3]}>
                 <p
                   className="header-user-info"
-                  onClick={() =>
-                    setIsUserDropdownOpen(!isUserDropdownOpen)
-                  }
+                  onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
                 >
                   jg
                 </p>
               </Badge>
             </Space>
-
             <div
               className="header-user-dropdown"
               style={{
@@ -72,7 +65,10 @@ const Header = (props) => {
               <p className="header-user-dropdown-item">
                 <BellFilled /> Notification
               </p>
-              <p className="header-user-dropdown-item" onClick={()=>dispatch(logout())}>
+              <p
+                className="header-user-dropdown-item"
+                onClick={() => dispatch(logout())}
+              >
                 <LogoutOutlined /> Logout
               </p>
             </div>
